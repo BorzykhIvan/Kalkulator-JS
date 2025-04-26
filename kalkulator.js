@@ -89,6 +89,12 @@ function calculateResult() {
             return;
     }
 
+    // Zaokrąglenie do 12 miejsc po przecinku 
+    result = Math.round(result * 1e12) / 1e12;
+    
+    // Usunięcie niepotrzebnych zer na końcu
+    result = parseFloat(result.toFixed(12));
+
     addHistoryEntry(firstNumber, currentOperator, secondNumber, result);
     clearHistoryBtn.classList.add('active');
 
